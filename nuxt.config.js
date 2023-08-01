@@ -11,14 +11,20 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
+      OpenSans: true,
       Roboto: true,
+      Lora: true,
       'Josefin+Sans': true,
       Lato: [100, 300],
-      Raleway: {
-        wght: [100, 400],
-        ital: [100]
-      },
+      Raleway: true,
     }
+  },
+  swiper: {
+    modules: ['navigation', 'pagination', 'autoplay'], // all modules are imported by default
+  },
+
+  i18n: {
+    vueI18n: './i18n.config.ts' // if you are using custom path, default 
   },
   devtools: { enabled: true },
 })
