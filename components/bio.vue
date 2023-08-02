@@ -1,19 +1,19 @@
 <template>
     <div class="bio-container">
         <div class="bio-container__header">
-            <span class="text-6xl"><span class="font-semibold">Ryan Kim</span> is a student at Concordia University in Montreal Canada.</span>
-            <span>IMAGE HERE</span>
+            <span class="text-5xl">
+                <span class="font-semibold">Ryan Kim</span> is a student at Concordia University in Montreal Canada
+            </span>
+            <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">
         </div>
         <div class="bio-container__skills">
             <Skills />
-        </div>
-        <div class="bio-container__eduction">
-            <Education />
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'Bio',
 }
@@ -24,7 +24,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 40px;
 }
 
 .bio-container__header {
@@ -33,8 +32,13 @@ export default {
     padding-bottom: 40px;
 }
 
-.bio-container__eduction {
-    padding: 20px 0;
+.bio-headshot {
+    display: flex;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    align-content: center;
 }
 
 </style>

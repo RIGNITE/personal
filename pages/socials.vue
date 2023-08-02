@@ -1,10 +1,13 @@
 <template>
     <div class="main-container">
-        <Education />
-        <Experience />
+        <p>Linked In</p>
+        <p>GitHub</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+
+        <p>Email</p>
     </div>
 </template>
-
 
 <style>
 .main-container {

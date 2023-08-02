@@ -1,9 +1,9 @@
 <template>
   <!-- bg-slate-400 or bg-zinc-600 -->
     <div>
-      <p>Header</p>
-        <slot />
-        <p>Footer</p>  
+      <Header />
+      <slot />
+      <p>Footer</p>  
     </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
 </script>
 
 <style>
-span, p, a, h1, h2, h3, h4, h5, h6 {
+
+span, p, a, h1, h2, h3, h4, h5, h6, button {
   font-family: Raleway;
 }
 

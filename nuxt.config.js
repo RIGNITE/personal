@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     'nuxt-icon',  //https://iconify.design/
     'nuxt-swiper',   //https://swiperjs.com/
     '@nuxtjs/i18n',   //https://i18n.nuxtjs.org/
-    '@nuxtjs/google-fonts'  //https://google-fonts.nuxtjs.org/
+    '@nuxtjs/google-fonts',  //https://google-fonts.nuxtjs.org/
+    'nuxt-headlessui' //https://headlessui.dev/
   ],
   googleFonts: {
     families: {
@@ -25,6 +26,15 @@ export default defineNuxtConfig({
 
   i18n: {
     vueI18n: './i18n.config.ts' // if you are using custom path, default 
+  },
+  swiper: {
+    swiperOption: {
+            loop: true,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            }
+          }
   },
   devtools: { enabled: true },
 })
