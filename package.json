@@ -20,6 +20,8 @@
     "nuxt-icon": "^0.4.2"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "@heroicons/vue": "^2.0.18",
     "@nuxtjs/google-fonts": "^3.0.2",
     "nuxt-swiper": "^1.2.0"
   }

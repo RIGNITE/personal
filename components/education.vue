@@ -1,19 +1,19 @@
 <template>
-    <span class="text-4xl">Education</span>
-    <div class="education-container"
-        v-for="school in education" 
-        :key="school.id"
-    >
-    <div class="flex row py-4">
-            <img :src="school.logo" width="250px" height="80px"/>
-            <div class="flex flex-col">
-                <span class="text-2xl">{{school.name}}</span>
-                <span>{{school.program}}</span>
-                <span>{{school.year}}</span>
+    <div>
+        <span class="text-4xl">Education</span>
+        <div class="education-container"
+            v-for="school in education" 
+            :key="school.id"
+        >
+            <div class="flex row py-4">
+                <img :src="school.logo" width="250px" height="80px"/>
+                <div class="flex flex-col">
+                    <span class="text-2xl">{{school.name}}</span>
+                    <span>{{school.program}}</span>
+                    <span>{{school.year}}</span>
+                </div>
             </div>
-            
         </div>
-        
     </div>
 </template>
 

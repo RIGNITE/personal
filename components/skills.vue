@@ -1,25 +1,33 @@
 <template>
-<Swiper
-    :modules="[SwiperNavigation, SwiperPagination, SwiperAutoplay]"
-    :slides-per-view="5"
-    :space-between="15"
-    :loop="true"
-    :autoplay="{
-      delay: 2500,
-      disableOnInteraction: false,
-    }"
-  >
-    <SwiperSlide 
-        v-for="skill in skills" :key="skill.id"
-        class="!flex flex-col items-center justify-between !h-[120px]"
+    <Swiper
+        :modules="[SwiperNavigation, SwiperPagination, SwiperAutoplay]"
+        :loop="true"
+        :slides-per-view="5"
+        :autoplay="{
+            delay: 2500,
+            disableOnInteraction: true,
+        }"
     >
-        <img :src="skill.logo" width="80" height="80"/>
+    <SwiperSlide 
+    v-for="skill in skills" :key="skill.id"
+    class="!flex flex-col items-center justify-between !h-[120px]"
+    >
+    <img :src="skill.logo" width="80" height="80"/>
         <span class="flex text-xl">{{skill.skill}}</span>
     </SwiperSlide>
   </Swiper>
 </template>
 
 <script>
+export default {
+    name: 'Skills',
+    data() {
+        return {
+            skills: skills
+        }
+    },
+}
+
 const skills = [
     {
         skill: "Java",
@@ -55,12 +63,4 @@ const skills = [
     },
 ]
 
-export default {
-    name: 'Skills',
-    data() {
-        return {
-            skills: skills
-        }
-    },
-}
 </script>
