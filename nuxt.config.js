@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     'nuxt-icon',  //https://iconify.design/
     'nuxt-swiper',   //https://swiperjs.com/
     '@nuxtjs/i18n',   //https://i18n.nuxtjs.org/
-    '@nuxtjs/google-fonts'  //https://google-fonts.nuxtjs.org/
+    '@nuxtjs/google-fonts',  //https://google-fonts.nuxtjs.org/
+    'nuxt-headlessui' //https://headlessui.dev/
   ],
   googleFonts: {
     families: {
