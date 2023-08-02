@@ -1,7 +1,7 @@
 <template>
     <div class="bio-container">
         <div class="bio-container__header">
-            <span class="text-6xl">
+            <span class="text-5xl">
                 <span class="font-semibold">Ryan Kim</span> is a student at Concordia University in Montreal Canada
             </span>
             <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">

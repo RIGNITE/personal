@@ -1,11 +1,12 @@
 <template>
     <Swiper
-        :modules="[SwiperNavigation, SwiperPagination, SwiperAutoplay]"
+        :modules="[SwiperAutoplay]"
+        :slides-per-view="4"
+        :centered-slides="false"
         :loop="true"
-        :slides-per-view="5"
         :autoplay="{
             delay: 2500,
-            disableOnInteraction: true,
+            disableOnInteraction: false,
         }"
     >
     <SwiperSlide 
