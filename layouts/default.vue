@@ -3,7 +3,7 @@
     <div>
       <Header />
       <slot />
-      <p>Footer</p>  
+      <Footer />  
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="about-container">
         <Education />
         <Experience />
     </div>
@@ -7,7 +7,7 @@
 
 
 <style>
-.main-container {
+.about-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

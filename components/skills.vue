@@ -13,7 +13,7 @@
     v-for="skill in skills" :key="skill.id"
     class="!flex flex-col items-center justify-between !h-[120px]"
     >
-    <img :src="skill.logo" width="80" height="80"/>
+        <Icon :name="skill.logo" size="80px"/>
         <span class="flex text-xl">{{skill.skill}}</span>
     </SwiperSlide>
   </Swiper>
@@ -32,35 +32,35 @@ export default {
 const skills = [
     {
         skill: "Java",
-        logo: "/java.png"
+        logo: "logos:java"
     },
     {
         skill: "JavaScript",
-        logo: "/javascript.png"
+        logo: "logos:javascript"
     },
     {
         skill: "React",
-        logo: "/react.png"
+        logo: "logos:react"
     },
     {
         skill: "Vue",
-        logo: "/vue.png"
+        logo: "logos:vue"
     },
     {
         skill: "HTML",
-        logo: "/html.png"
+        logo: "logos:html-5"
     },
     {
         skill: "CSS",
-        logo: "/csslogo.png"
+        logo: "logos:css-3"
     },
     {
         skill: "SQL",
-        logo: "/sql.png"
+        logo: "logos:mysql" //logos:mysql
     },    
     {
         skill: "C#",
-        logo: "/csharp.png"
+        logo: "logos:c-sharp"
     },
 ]
 
