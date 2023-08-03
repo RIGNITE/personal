@@ -41,7 +41,6 @@
   
           <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Me</a>
           <a href="/socials" class="text-sm font-semibold leading-6 text-gray-900">Socials</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
         </PopoverGroup>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -67,7 +66,6 @@
                 </Disclosure>
                 <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Me</a>
                 <a href="/socials" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Socials</a>
-                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
               </div>
             </div>
           </div>
@@ -101,8 +99,8 @@
   import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
   
   const products = [
-    { name: 'DIFF', description: 'FrontEnd Developer Intern', href: 'https://www.diffagency.com/', icon: ChartPieIcon },
-    { name: 'Ubisoft', description: 'CRM FrontEnd Developer Intern', href: 'https://www.ubisoft.com/en-us/', icon: CursorArrowRaysIcon },
+    { name: 'DIFF', description: 'Frontend Developer Intern', href: 'https://www.diffagency.com/', icon: ChartPieIcon },
+    { name: 'Ubisoft', description: 'CRM Frontend Developer Intern', href: 'https://www.ubisoft.com/en-us/', icon: CursorArrowRaysIcon },
     { name: 'HRWize', description: 'Software Developer Intern', href: 'https://hrwize.com/', icon: FingerPrintIcon },
   ]
   

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="socials-container">
         <p>Linked In</p>
         <p>GitHub</p>
         <p>Instagram</p>
@@ -10,7 +10,7 @@
 </template>
 
 <style>
-.main-container {
+.socials-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
