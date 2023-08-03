@@ -10,9 +10,6 @@
 </template>
 
 <style>
-body {
-    margin: auto;
-}
 
 .main-container {
     display: flex;

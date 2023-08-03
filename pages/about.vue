@@ -1,5 +1,6 @@
 <template>
     <div class="about-container">
+        <!-- max container width 800px -->
         <Education />
         <Experience />
     </div>
