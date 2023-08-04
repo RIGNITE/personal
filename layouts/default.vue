@@ -1,10 +1,10 @@
 <template>
   <!-- bg-slate-400 or bg-zinc-600 -->
-    <div>
       <Header />
-      <slot />
+      <div class="content-container">
+        <slot />
+      </div>
       <Footer />  
-    </div>
 </template>
 
 <script>
@@ -15,11 +15,14 @@ export default {
 
 <style>
 body {
-  height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
+.content-container {
+  min-height: 100vh;
+}
 
 span, p, a, h1, h2, h3, h4, h5, h6, button {
   font-family: Raleway;

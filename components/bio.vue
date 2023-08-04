@@ -2,12 +2,14 @@
     <div class="bio-container">
         <div class="bio-container__hero">
             <div class="bio-container__header max-w-7xl mx-auto">
-                <span class="text-white">
-                    <h1 class="font-semibold text-5xl">Ryan Kim</h1>
-                    <p>Student at Concordia University</p>
-                    <p>Montreal Canada</p>
+                <div class="text-white">
+                    <h1 class="font-semibold text-6xl">Ryan Kim</h1>
+                    <div class="pt-5">
+                        <p class="text-2xl">Student at Concordia University</p>
+                        <p class="text-2xl">Montreal Canada</p>
+                    </div>
                     
-                </span>
+                </div>
                 <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">
             </div>
         </div>
@@ -27,6 +29,7 @@
 export default {
     name: 'Bio',
 }
+
 </script>
 
 <style>
@@ -40,7 +43,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url('../public/bw_asia.jpg');
+    background-image: url('./bw_asia.jpg');
     background-size: cover;
 }
 
@@ -49,6 +52,13 @@ export default {
     grid-template-columns: 3fr 1fr;
     padding: 40px;
     opacity: 1 !important;
+}
+
+.bio-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .bio-headshot {
