@@ -5,6 +5,15 @@
 </template>
 
 <script>
+const passions = [
+    {
+        title: 'Volleyball',
+        image: '',
+        clubs: '',
+        description: '',
+        instagram: ''
+    }
+]
 </script>
 
 <style>
