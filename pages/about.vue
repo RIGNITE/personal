@@ -2,25 +2,29 @@
     <div class="about-container max-w-4xl mx-auto">
         <div
             v-for="(data) in about_me_data"
-            :key="data.title"
+            :key="data.category"
             @click="toggleList(data)"
             class="about-container__card w-full"
         >
-            <h1 class="about-title text-4xl p-2">{{data.title}}</h1>
-            <!-- <div class="list-items" :class="isOpen ? '' : 'close'"> -->
-                <div class="list-items" :class="data.open ? 'close' : ''">
-                <ListItems :list="data.data" :logoWidth="data.logoWidth"/>
+        <div class="about-header flex justify-between w-full" :class="data.open ? 'about-open' : ''">
+            <h1 class="text-4xl p-2">{{data.category}}</h1>
+            <Icon class="pr-2" :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" size="50px"/>
+        </div>
+
+            <div class="list-items" :class="data.open ? '' : 'about-close'">
+                <ListItems :category="data.category" :list="data.data" :logoWidth="data.logoWidth"/>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
-import ListItems from './ListItems.vue';  
-const about_me_data = ref([
+
+import {ref} from 'vue'; 
+const about_me_data = ref(
+[
     {
-        title: "Experience",
+        category: "Experience",
         open: false,
         logoWidth: "80px",
         data: [
@@ -43,8 +47,9 @@ const about_me_data = ref([
                 logo: "/hrwize.jpg"
             }
         ]
-    }, {
-        title: "Education",
+    }, 
+    {
+        category: "Education",
         open: false,
         logoWidth: "250px",
         data: [
@@ -63,16 +68,26 @@ const about_me_data = ref([
                 logo: "/johnabbottlogo.jpeg"
             },
         ]
-    }, {
-        title: "Passions",
+    }, 
+    {
+        category: "Passions",
         open: false,
         data: [
             {
                 title: 'Volleyball',
-                image: '',
-                clubs: '',
-                description: '',
-                instagram: ''
+                images: [
+                    'DSC_0106.jpg',
+                    'DSC_0135.jpg',
+                    'DSC_0313.jpg',
+                    'DSC_0348.jpg',
+                    'DSC_0953.jpg',
+                ],
+                clubs: 'Montreal Sunbirds',
+                description: `CHANGE LOLOLOL. I've been playing volleyball for the past 9 years, and I have never gotten tired of it. 
+                It is a sport that requires a lot of teamwork and communication, which are two skills that I value a lot.
+                I have been playing for the Montreal Sunbirds for the past 2 years, and I have been able to travel to many places in Canada and the United States.
+                I have also been able to meet many people from different backgrounds, and I have been able to learn a lot from them.`,
+                instagram: 'https://www.instagram.com/mtlsunbirds9man/'
             }
         ]
     }
@@ -95,19 +110,28 @@ const toggleList = (data) => {
 .about-container__card {
     max-width: 800px;
 }
-.about-title{
+.about-header{
     cursor: pointer;
     transition: all 0.3s ease; /* Adjust the duration and easing as needed */
     background: linear-gradient(to right,black 50%,  white 50% ) right;
     background-size: 200% 100%;
 }
-.about-title:hover{
+.about-header:hover{
     letter-spacing: 0.1em;
     background-position: left;
     transition:all 0.8s ease;
     color: white;
 }
-.close{
+
+.about-open {
+    letter-spacing: 0.1em;
+    background-color: black;
+    background-position: left;
+    transition:all 0.8s ease;
+    color: white;
+}
+
+.about-close{
     display: none;
 }
 </style>

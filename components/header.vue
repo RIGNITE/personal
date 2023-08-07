@@ -40,7 +40,7 @@
           </Popover>
   
           <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Me</a>
-          <a href="/socials" class="text-sm font-semibold leading-6 text-gray-900">Socials</a>
+          <a href="/projects" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
         </PopoverGroup>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -65,7 +65,7 @@
                   </DisclosureButton>
                 </Disclosure>
                 <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Me</a>
-                <a href="/socials" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Socials</a>
+                <a href="/projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</a>
               </div>
             </div>
           </div>
