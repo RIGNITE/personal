@@ -2,7 +2,7 @@
     <div class="bio-container">
         <div class="bio-container__hero">
             <div class="bio-container__header max-w-7xl mx-auto">
-                <div class="text-white">
+                <div class="flex flex-col justify-center max-w-lg p-5 text-white">
                     <h1 class="font-semibold text-6xl">Ryan Kim</h1>
                     <div class="pt-5">
                         <p class="text-2xl">Student at Concordia University</p>
@@ -13,7 +13,7 @@
                 <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">
             </div>
         </div>
-        <span class="bio-description max-w-7xl mx-auto text-2xl">
+        <span class="bio-description max-w-3xl mx-auto text-2xl">
             My name is Ryan Kim and I was born and raised in Montreal, Canada. 
             I am currently a fourth-year student at Concordia University studying Software Engineering.
             I am passionate about technology and its ability to improve the lives of people around the world.
@@ -49,7 +49,7 @@ export default {
 
 .bio-container__header {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     padding: 40px;
     opacity: 1 !important;
 }
@@ -66,6 +66,8 @@ export default {
     border-radius: 50%;
     min-width: 250px;
     min-height: 250px;
+    max-width: 300px;
+    max-height: 300px;
     margin: auto;
     align-content: center;
 }

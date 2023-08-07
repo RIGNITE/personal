@@ -8,6 +8,7 @@
                 <div class="flex row">
                     <p class="max-w-sm px-2">{{ item.description }}</p>
                     <swiper
+                        class="passion-swiper"
                         :modules="[SwiperAutoplay, SwiperPagination, SwiperNavigation]"
                         :slides-per-view="1"
                         :centeredSlides="true"
@@ -56,7 +57,7 @@ const props = defineProps({
     justify-content: flex-start;
 }
 
-.swiper {
+.passion-swiper {
     max-width: 400px;
 }
 </style>

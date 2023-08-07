@@ -6,13 +6,24 @@
             @click="toggleList(data)"
             class="about-container__card w-full"
         >
-        <div class="about-header flex justify-between w-full" :class="data.open ? 'about-open' : ''">
-            <h1 class="text-4xl p-2">{{data.category}}</h1>
-            <Icon class="pr-2" :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" size="50px"/>
+        <div 
+            class="about-header flex justify-between w-full" 
+            :class="data.open ? 'about-open' : ''"
+        >
+            <span class="text-4xl p-2">{{data.category}}</span>
+            <Icon 
+                class="pr-2" 
+                :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" 
+                size="50px"
+            />
         </div>
 
             <div class="list-items" :class="data.open ? '' : 'about-close'">
-                <ListItems :category="data.category" :list="data.data" :logoWidth="data.logoWidth"/>
+                <ListItems 
+                    :category="data.category" 
+                    :list="data.data" 
+                    :logoWidth="data.logoWidth"
+                />
             </div>
         </div>
     </div>
@@ -82,7 +93,7 @@ const about_me_data = ref(
                     'DSC_0348.jpg',
                     'DSC_0953.jpg',
                 ],
-                clubs: 'Montreal Sunbirds',
+                clubs: '9man Montreal Sunbirds',
                 description: `CHANGE LOLOLOL. I've been playing volleyball for the past 9 years, and I have never gotten tired of it. 
                 It is a sport that requires a lot of teamwork and communication, which are two skills that I value a lot.
                 I have been playing for the Montreal Sunbirds for the past 2 years, and I have been able to travel to many places in Canada and the United States.

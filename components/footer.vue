@@ -9,7 +9,11 @@
                 :key="link.name"
                 :href="link.link" 
                 target="_blank">
-                <Icon :name="link.icon" size="30px" class="socials-item"/>
+                <Icon 
+                    :name="link.icon" 
+                    size="30px" 
+                    class="socials-item"
+                />
             </a>
         </div>
     </div>

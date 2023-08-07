@@ -20,7 +20,7 @@
 .main-container__bio {}
 
 .main-container__skills {
-    padding: 40px;
+    padding-bottom: 40px;
 }
 
 </style>

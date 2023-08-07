@@ -8,10 +8,11 @@
             delay: 2500,
             disableOnInteraction: false,
         }"
+        class="max-w-3xl mx-auto"
     >
     <SwiperSlide 
-    v-for="skill in skills" :key="skill.id"
-    class="!flex flex-col items-center justify-between !h-[120px]"
+        v-for="skill in skills" :key="skill.id"
+        class="!flex flex-col items-center justify-between !h-[120px]"
     >
         <Icon :name="skill.logo" size="80px"/>
         <span class="flex text-xl">{{skill.skill}}</span>
