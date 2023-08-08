@@ -9,7 +9,7 @@
                         <p class="text-2xl">{{ props.data?.location }}</p>
                     </div>
                 </div>
-                <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">
+                <PrismicImage :field="props.data?.headshot" class="bio-headshot"/>
             </div>
         </div>
         <span class="bio-description max-w-3xl mx-auto text-xl text-gray-600">
