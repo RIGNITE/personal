@@ -31,76 +31,43 @@
 
 <script setup>
 
+const prismic = usePrismic();
+const { data: page } = await useAsyncData("[home]", () =>
+  prismic.client.getSingle("about")
+);
+
+const aboutme_data = page?.value?.data;
+console.log(aboutme_data);
+
+const experience = aboutme_data?.experience;
+const education = aboutme_data?.education;
+const passion = aboutme_data?.passion;
+
+passion.forEach(item => {
+    if(item.title.toLowerCase() == "volleyball") {
+        item.images = aboutme_data?.volleyball;
+    }
+});
+
+console.log(passion);
+
 import {ref} from 'vue'; 
 const about_me_data = ref(
 [
     {
         category: "Experience",
         open: false,
-        logoWidth: "80px",
-        data: [
-            {
-                name: "DIFF",
-                year: "May 2023 - August 2023",
-                title: "Frontend Developer Intern",
-                logo: "/diff.jpg"
-            },
-            {
-                name: "Ubisoft",
-                year: "May 2022 - August 2022",
-                title: "CRM Frontend Developer Intern",
-                logo: "/ubilogo.png"
-            },
-            {
-                name: "HRWize",
-                year: "May 2021 - August 2021",
-                title: "Software Developer Intern",
-                logo: "/hrwize.jpg"
-            }
-        ]
+        data: experience
     }, 
     {
         category: "Education",
         open: false,
-        logoWidth: "250px",
-        data: [
-            {
-                name: "Concordia University",
-                title: "Software Engineering",
-                year: "2019 - Present",
-                id: 40175423,
-                logo: "/concordialogo.jpeg"
-            },
-            {
-                name: "John Abbott College",
-                title: "Sciences",
-                year: "2017 - 2019",
-                id: 1842895,
-                logo: "/johnabbottlogo.jpeg"
-            },
-        ]
+        data: education
     }, 
     {
         category: "Passions",
         open: false,
-        data: [
-            {
-                title: 'Volleyball',
-                images: [
-                    'DSC_0106.jpg',
-                    'DSC_0135.jpg',
-                    'DSC_0313.jpg',
-                    'DSC_0348.jpg',
-                    'DSC_0953.jpg',
-                ],
-                clubs: '9man Montreal Sunbirds',
-                description: `CHANGE LOLOLOL. I've been playing volleyball for the past 9 years, and I have never gotten tired of it. 
-                It is a sport that requires a lot of teamwork and communication, which are two skills that I value a lot.
-                I have been playing for the Montreal Sunbirds for the past 2 years, and I have been able to travel to many places in Canada and the United States.
-                I have also been able to meet many people from different backgrounds, and I have been able to learn a lot from them.`,
-                instagram: 'https://www.instagram.com/mtlsunbirds9man/'
-            }
-        ]
+        data: passion
     }
 ])
 
@@ -124,7 +91,7 @@ const toggleList = (data) => {
 .about-header{
     cursor: pointer;
     transition: all 0.3s ease; /* Adjust the duration and easing as needed */
-    background: linear-gradient(to right,black 50%,  white 50% ) right;
+    background: linear-gradient(to right,black 50%,  #ffffff00 50% ) right;
     background-size: 200% 100%;
 }
 .about-header:hover{

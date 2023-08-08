@@ -6,6 +6,10 @@
   "status": true,
   "json": {
     "Main": {
+      "fullname": {
+        "type": "Text",
+        "config": { "label": "FullName", "placeholder": "" }
+      },
       "intro": {
         "type": "StructuredText",
         "config": {
@@ -15,14 +19,18 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "fullname": {
+      "occupation": {
         "type": "Text",
-        "config": { "label": "Fullname", "placeholder": "" }
+        "config": { "label": "Occupation", "placeholder": "" }
+      },
+      "location": {
+        "type": "Text",
+        "config": { "label": "Location", "placeholder": "" }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "banner_slice": { "type": "SharedSlice" } } }
+        "config": { "choices": { "slider_slice": { "type": "SharedSlice" } } }
       }
     },
     "SEO & Metadata": {

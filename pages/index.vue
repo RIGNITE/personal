@@ -7,6 +7,8 @@
             <Skills />
         </div>
     </div>
+
+
 </template>
 
 <script setup>
@@ -16,9 +18,6 @@ const { data: page } = useAsyncData("[home]", () =>
 );
 
 const biodata = page?.value?.data;
-
-
-console.log(page);
 </script>
 
 <style>
@@ -29,7 +28,11 @@ console.log(page);
     justify-content: flex-start;
 }
 
-.main-container__bio {}
+.main-container__bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 .main-container__skills {
     padding-bottom: 40px;
