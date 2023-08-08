@@ -1,9 +1,9 @@
 <template>
-    <header class="bg-white">
+    <header class="header-container">
       <nav class="mx-auto flex max-w-10xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="/" class="-m-1.5 p-1.5">
-            <h1 class="text-xl text-gray- font-semibold">RK</h1>
+            <h1 class="header-gradient text-2xl text-gray- font-semibold">RK</h1>
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -14,9 +14,9 @@
         </div>
         <PopoverGroup class="hidden lg:flex lg:gap-x-12">
           <Popover class="relative">
-            <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <PopoverButton class="header-gradient header-item flex flex-row items-center gap-x-1 text-sm font-semibold leading-6">
               Experience
-              <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              <!-- <ChevronDownIcon class="h-5 w-5 flex-none" aria-hidden="true" /> -->
             </PopoverButton>
   
             <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
@@ -39,8 +39,8 @@
             </transition>
           </Popover>
   
-          <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About Me</a>
-          <a href="/projects" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
+          <a href="/about" class="header-gradient header-item text-sm font-semibold leading-6">About Me</a>
+          <a href="/projects" class="header-gradient header-item text-sm font-semibold leading-6">Projects</a>
         </PopoverGroup>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -59,13 +59,13 @@
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
                 <Disclosure as="div" class="-mx-3" v-slot="{ open }">
-                  <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                  <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">
                     Experience
                     <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                   </DisclosureButton>
                 </Disclosure>
-                <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Me</a>
-                <a href="/projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</a>
+                <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">About Me</a>
+                <a href="/projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">Projects</a>
               </div>
             </div>
           </div>
@@ -106,3 +106,42 @@
   
   const mobileMenuOpen = ref(false)
   </script>
+
+<style>
+.header-gradient {
+  color: black;
+}
+
+.header-gradient:hover {
+  background: rgb(30,0,255);
+  background-image: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.header-item {
+  display: block;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.header-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgb(30,0,255);
+  background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+  transition: width .3s;
+}
+
+.header-item:hover::after {
+  width: 100%;
+}
+
+</style>

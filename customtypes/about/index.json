@@ -1,0 +1,128 @@
+{
+  "id": "about",
+  "label": "about",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "experience": {
+        "type": "Group",
+        "config": {
+          "label": "Experience",
+          "fields": {
+            "logo": {
+              "type": "Image",
+              "config": { "label": "Logo", "constraint": {}, "thumbnails": [] }
+            },
+            "name": {
+              "type": "Text",
+              "config": { "label": "Name", "placeholder": "" }
+            },
+            "title": {
+              "type": "Text",
+              "config": { "label": "Title", "placeholder": "" }
+            },
+            "year": {
+              "type": "Text",
+              "config": { "label": "Year", "placeholder": "" }
+            }
+          }
+        }
+      },
+      "education": {
+        "type": "Group",
+        "config": {
+          "label": "Education",
+          "fields": {
+            "logo": {
+              "type": "Image",
+              "config": { "label": "Logo", "constraint": {}, "thumbnails": [] }
+            },
+            "name": {
+              "type": "Text",
+              "config": { "label": "Name", "placeholder": "" }
+            },
+            "title": {
+              "type": "Text",
+              "config": { "label": "Title", "placeholder": "" }
+            },
+            "year": {
+              "type": "Text",
+              "config": { "label": "Year", "placeholder": "" }
+            }
+          }
+        }
+      },
+      "passion": {
+        "type": "Group",
+        "config": {
+          "label": "Passion",
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": { "label": "Title", "placeholder": "" }
+            },
+            "clubs": {
+              "type": "Text",
+              "config": { "label": "Clubs", "placeholder": "" }
+            },
+            "description": {
+              "type": "Text",
+              "config": { "label": "Description", "placeholder": "" }
+            },
+            "instagram": {
+              "type": "Link",
+              "config": {
+                "label": "Instagram",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "volleyball": {
+        "type": "Group",
+        "config": {
+          "label": "Volleyball",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "repeat": { "type": "SharedSlice" } } }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": { "height": 1260, "width": 2400 },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

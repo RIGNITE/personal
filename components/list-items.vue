@@ -2,7 +2,7 @@
     <div>
         <div v-if="props.category === 'Passions'" class="flex row py-4 px-2">
             <div v-for="(item, index) in props.list"
-            :key="props.category + index"
+                :key="props.category + index"
             >
                 <h1 class="text-2xl font-medium p-2">{{ item.clubs}}</h1>
                 <div class="flex row">
@@ -18,11 +18,11 @@
                             disableOnInteraction: false,
                         }"
                     >
-                        <swiper-slide v-for="image in item.images" :key="image"><img :src="image" alt=""></swiper-slide>
+                        <swiper-slide v-for="image in item.images" :key="image">
+                            <prismic-image :field="image.image" />
+                        </swiper-slide>
                     </swiper>
                 </div>
-                
-                <!-- <p v-for="image in item.images" :key="image">{{ image }}</p> -->
             </div>
         </div>
         <div v-else class="list__items-container"
@@ -30,7 +30,7 @@
             :key="props.category + index"
         >
             <div class="flex row py-4 px-2">
-                <img :src="item?.logo" :width="props.logoWidth" class="mr-3"/>
+                <prismic-image :field="item.logo" class="mr-3"/>
                 <div class="flex flex-col">
                     <span class="text-2xl">{{item.name}}</span>
                     <span>{{item.title}}</span>

@@ -1,0 +1,27 @@
+{
+  "id": "slider_slice",
+  "type": "SharedSlice",
+  "name": "SliderSlice",
+  "description": "SliderSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "iconname": {
+          "type": "Text",
+          "config": { "label": "IconName", "placeholder": "" }
+        },
+        "skilllabel": {
+          "type": "Text",
+          "config": { "label": "SkillLabel", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

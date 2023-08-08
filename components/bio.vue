@@ -5,16 +5,16 @@
                 <div class="flex flex-col justify-center max-w-lg p-5 text-white">
                     <h1 class="font-semibold text-6xl">{{ props.data?.fullname }}</h1>
                     <div class="pt-5">
-                        <p class="text-2xl">Student at Concordia University</p>
-                        <p class="text-2xl">Montreal Canada</p>
+                        <p class="text-2xl">{{ props.data?.occupation }}</p>
+                        <p class="text-2xl">{{ props.data?.location }}</p>
                     </div>
                 </div>
                 <img src="/headshot.jpg" alt="ryankim" class="bio-headshot">
             </div>
         </div>
-        <span class="bio-description max-w-3xl mx-auto text-2xl">
+        <span class="bio-description max-w-3xl mx-auto text-xl text-gray-600">
             {{ props.data?.intro[0].text }}
-        </span>    
+        </span>
     </div>
 </template>
 
@@ -35,8 +35,9 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url('~/assets/bw_asia.jpg');
     background-size: cover;
+    background: rgb(30,0,255);
+    background: linear-gradient(342deg, rgb(30, 0, 255) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
 }
 
 .bio-container__header {
