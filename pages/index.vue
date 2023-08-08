@@ -18,7 +18,7 @@ const { data: page } = useAsyncData("[home]", () =>
 const biodata = page?.value?.data;
 
 
-
+console.log(page);
 </script>
 
 <style>

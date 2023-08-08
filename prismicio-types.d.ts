@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = BannerSliceSlice;
 
 /**
  * Content for home documents
@@ -90,6 +90,51 @@ export type HomeDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomeDocument;
 
+/**
+ * Primary content in *BannerSlice → Items*
+ */
+export interface BannerSliceSliceDefaultItem {
+  /**
+   * title field in *BannerSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner_slice.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for BannerSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<BannerSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *BannerSlice*
+ */
+type BannerSliceSliceVariation = BannerSliceSliceDefault;
+
+/**
+ * BannerSlice Shared Slice
+ *
+ * - **API ID**: `banner_slice`
+ * - **Description**: BannerSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceSlice = prismic.SharedSlice<
+  "banner_slice",
+  BannerSliceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -104,6 +149,10 @@ declare module "@prismicio/client" {
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BannerSliceSlice,
+      BannerSliceSliceDefaultItem,
+      BannerSliceSliceVariation,
+      BannerSliceSliceDefault,
     };
   }
 }
