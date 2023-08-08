@@ -13,11 +13,12 @@
 
 <script setup>
 const prismic = usePrismic();
-const { data: page } = useAsyncData("[home]", () =>
+const { data: page } = await useAsyncData("[home]", () =>
   prismic.client.getSingle("home")
 );
 
 const biodata = page?.value?.data;
+console.log(biodata);
 </script>
 
 <style>

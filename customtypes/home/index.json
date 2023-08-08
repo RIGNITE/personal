@@ -27,6 +27,10 @@
         "type": "Text",
         "config": { "label": "Location", "placeholder": "" }
       },
+      "headshot": {
+        "type": "Image",
+        "config": { "label": "headshot", "constraint": {}, "thumbnails": [] }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

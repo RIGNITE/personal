@@ -311,6 +311,17 @@ interface HomeDocumentData {
   location: prismic.KeyTextField;
 
   /**
+   * headshot field in *home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.headshot
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  headshot: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *home*
    *
    * - **Field Type**: Slice Zone
