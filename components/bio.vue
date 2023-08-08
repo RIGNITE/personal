@@ -35,7 +35,7 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url('./bw_asia.jpg');
+    background-image: url('~/assets/bw_asia.jpg');
     background-size: cover;
 }
 
