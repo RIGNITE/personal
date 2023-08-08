@@ -4,18 +4,44 @@
             © Ryan Kim 2023
         </span>
         <div class="socials">
-            <a href="https://www.instagram.com/k.im_ryan/" target="_blank"><Icon name="mdi:instagram" size="30px" class="socials-item"/></a>
-            <a href="https://www.linkedin.com/in/ryan-kim-26445414b/"><Icon name="mdi:linkedin" size="30px" class="socials-item"/></a>
-            <a href="https://github.com/RIGNITE"><Icon name="mdi:github" size="30px" class="socials-item"/></a>
-            <a href="https://www.facebook.com/ryan.5.kim/"><Icon name="mdi:facebook" size="30px" class="socials-item"/></a>
+            <a 
+                v-for="link in links" 
+                :key="link.name"
+                :href="link.link" 
+                target="_blank">
+                <Icon 
+                    :name="link.icon" 
+                    size="30px" 
+                    class="socials-item"
+                />
+            </a>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Footer'
-}
+<script setup>
+const links = [
+    {
+        name: 'Instagram',
+        link: 'https://www.instagram.com/k.im_ryan/',
+        icon: 'mdi:instagram'
+    },
+    {
+        name: 'LinkedIn',
+        link: 'https://www.linkedin.com/in/ryan-kim-26445414b/',
+        icon: 'mdi:linkedin'
+    },
+    {
+        name: 'Github',
+        link: 'https://github.com/RIGNITE',
+        icon: 'mdi:github'
+    },
+    {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/ryan.5.kim/',
+        icon: 'mdi:facebook'
+    }
+]
 </script>
 
 <style>

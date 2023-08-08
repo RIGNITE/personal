@@ -1,0 +1,5 @@
+{
+  "repositoryName": "ryan-kim-portfolio",
+  "adapter": "@slicemachine/adapter-nuxt",
+  "libraries": ["./slices"]
+}

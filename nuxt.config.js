@@ -1,18 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  modules: [
-    "@nuxtjs/tailwindcss",
-    // '@nuxtjs/eslint-module', //https://eslint.nuxtjs.org/
-    "nuxt-icon", //https://iconify.design/
-    "nuxt-swiper", //https://swiperjs.com/
-    "@nuxtjs/i18n", //https://i18n.nuxtjs.org/
-    "@nuxtjs/google-fonts", //https://google-fonts.nuxtjs.org/
-    "nuxt-headlessui", //https://headlessui.dev/
-  ],
+  modules: ["@nuxtjs/tailwindcss", // '@nuxtjs/eslint-module', //https://eslint.nuxtjs.org/
+  //https://iconify.design/
+  "nuxt-icon", //https://swiperjs.com/
+  "nuxt-swiper", //https://i18n.nuxtjs.org/
+  "@nuxtjs/i18n", //https://google-fonts.nuxtjs.org/
+  "@nuxtjs/google-fonts", //https://headlessui.dev/
+  "nuxt-headlessui", "@nuxtjs/prismic"],
+
   extends: ["nuxt-lego"],
+
   googleFonts: {
     families: {
+      Inter: true,
       OpenSans: true,
       Roboto: true,
       Lora: true,
@@ -21,6 +22,7 @@ export default defineNuxtConfig({
       Raleway: true,
     },
   },
+
   swiper: {
     modules: ["navigation", "pagination", "autoplay"], // all modules are imported by default
   },
@@ -28,6 +30,7 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: "./i18n.config.ts", // if you are using custom path, default
   },
+
   swiper: {
     swiperOption: {
       loop: true,
@@ -37,5 +40,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
   devtools: { enabled: true },
+
+  prismic: {
+    endpoint: "ryan-kim-portfolio",
+  },
 });
