@@ -45,13 +45,5 @@ export default defineNuxtConfig({
 
   prismic: {
     endpoint: "ryan-kim-portfolio",
-    clientConfig: {
-      routes: [
-        {
-          type: "home",
-          path: "/",
-        },
-      ],
-    },
   },
 });
