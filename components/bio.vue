@@ -24,7 +24,7 @@ const props = defineProps({
 });
 </script>
 
-<style>
+<style scoped>
 .bio-container {
     display: flex;
     flex-direction: column;
