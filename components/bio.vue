@@ -1,8 +1,8 @@
 <template>
     <div class="bio-container">
         <div class="bio-container__hero">
-            <div class="bio-container__header max-w-7xl mx-auto">
-                <div class="flex flex-col justify-center max-w-lg p-5 text-white">
+            <div class="bio-container__header max-w-7xl mx-auto w-full p-6 lg:px-8">
+                <div class="flex flex-col justify-center max-w-lg text-white">
                     <h1 class="font-semibold text-6xl">{{ props.data?.fullname }}</h1>
                     <div class="pt-5">
                         <p class="text-2xl">{{ props.data?.occupation }}</p>
@@ -43,7 +43,6 @@ const props = defineProps({
 .bio-container__header {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    padding: 40px;
     opacity: 1 !important;
 }
 

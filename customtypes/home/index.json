@@ -34,7 +34,7 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "slider_slice": { "type": "SharedSlice" } } }
+        "config": { "choices": {} }
       }
     },
     "SEO & Metadata": {
