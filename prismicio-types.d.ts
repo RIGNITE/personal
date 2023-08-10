@@ -154,7 +154,7 @@ export interface AboutDocumentDataVolleyballItem {
   image: prismic.ImageField<never>;
 }
 
-type AboutDocumentDataSlicesSlice = RepeatSlice;
+type AboutDocumentDataSlicesSlice = AboutItemSlice;
 
 /**
  * Content for about documents
@@ -260,66 +260,50 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type HomeDocumentDataSlicesSlice = SliderSliceSlice;
+/**
+ * Item in *home → Skills*
+ */
+export interface HomeDocumentDataSkillsItem {
+  /**
+   * LogoName field in *home → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.skills[].logoname
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logoname: prismic.KeyTextField;
+
+  /**
+   * LogoIcon field in *home → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.skills[].logoicon
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logoicon: prismic.KeyTextField;
+}
+
+type HomeDocumentDataSlicesSlice =
+  | CenterTextSlice
+  | HeroSlice
+  | SwiperSliderSlice;
 
 /**
  * Content for home documents
  */
 interface HomeDocumentData {
   /**
-   * FullName field in *home*
+   * Skills field in *home*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.fullname
+   * - **API ID Path**: home.skills[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  fullname: prismic.KeyTextField;
-
-  /**
-   * Intro field in *home*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.intro
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  intro: prismic.RichTextField;
-
-  /**
-   * Occupation field in *home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.occupation
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  occupation: prismic.KeyTextField;
-
-  /**
-   * Location field in *home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  location: prismic.KeyTextField;
-
-  /**
-   * headshot field in *home*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.headshot
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  headshot: prismic.ImageField<never>;
+  skills: prismic.GroupField<Simplify<HomeDocumentDataSkillsItem>>;
 
   /**
    * Slice Zone field in *home*
@@ -380,110 +364,305 @@ export type HomeDocument<Lang extends string = string> =
 export type AllDocumentTypes = AboutDocument | HomeDocument;
 
 /**
- * Primary content in *Repeat → Items*
+ * Primary content in *AboutItem → Primary*
  */
-export interface RepeatSliceDefaultItem {
+export interface AboutItemSliceDefaultPrimary {
   /**
-   * title field in *Repeat → Items*
+   * Category field in *AboutItem → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: repeat.items[].title
+   * - **API ID Path**: about_item.primary.category
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Logo field in *AboutItem → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_item.primary.logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Name field in *AboutItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_item.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Title field in *AboutItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_item.primary.title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
 
   /**
-   * logo field in *Repeat → Items*
+   * Year field in *AboutItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_item.primary.year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for AboutItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutItemSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutItem*
+ */
+type AboutItemSliceVariation = AboutItemSliceDefault;
+
+/**
+ * AboutItem Shared Slice
+ *
+ * - **API ID**: `about_item`
+ * - **Description**: AboutItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutItemSlice = prismic.SharedSlice<
+  "about_item",
+  AboutItemSliceVariation
+>;
+
+/**
+ * Primary content in *CenterText → Primary*
+ */
+export interface CenterTextSliceDefaultPrimary {
+  /**
+   * Text field in *CenterText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: center_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for CenterText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CenterTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CenterTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CenterText*
+ */
+type CenterTextSliceVariation = CenterTextSliceDefault;
+
+/**
+ * CenterText Shared Slice
+ *
+ * - **API ID**: `center_text`
+ * - **Description**: CenterText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CenterTextSlice = prismic.SharedSlice<
+  "center_text",
+  CenterTextSliceVariation
+>;
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Headshot field in *Hero → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: repeat.items[].logo
+   * - **API ID Path**: hero.primary.headshot
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  logo: prismic.ImageField<never>;
+  headshot: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Occupation field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.occupation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  occupation: prismic.KeyTextField;
+
+  /**
+   * Location field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location: prismic.KeyTextField;
 }
 
 /**
- * Default variation for Repeat Slice
+ * Default variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RepeatSliceDefault = prismic.SharedSliceVariation<
+export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  Simplify<RepeatSliceDefaultItem>
+  Simplify<HeroSliceDefaultPrimary>,
+  never
 >;
 
 /**
- * Slice variation for *Repeat*
+ * Slice variation for *Hero*
  */
-type RepeatSliceVariation = RepeatSliceDefault;
+type HeroSliceVariation = HeroSliceDefault;
 
 /**
- * Repeat Shared Slice
+ * Hero Shared Slice
  *
- * - **API ID**: `repeat`
- * - **Description**: Repeat
+ * - **API ID**: `hero`
+ * - **Description**: Hero
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RepeatSlice = prismic.SharedSlice<"repeat", RepeatSliceVariation>;
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Primary content in *SliderSlice → Items*
+ * Primary content in *ImageGallery → Items*
  */
-export interface SliderSliceSliceDefaultItem {
+export interface ImageGallerySliceDefaultItem {
   /**
-   * IconName field in *SliderSlice → Items*
+   * Image field in *ImageGallery → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: slider_slice.items[].iconname
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: image_gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  iconname: prismic.KeyTextField;
-
-  /**
-   * SkillLabel field in *SliderSlice → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: slider_slice.items[].skilllabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  skilllabel: prismic.KeyTextField;
+  image: prismic.ImageField<never>;
 }
 
 /**
- * Default variation for SliderSlice Slice
+ * Default variation for ImageGallery Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type SliderSliceSliceDefault = prismic.SharedSliceVariation<
+export type ImageGallerySliceDefault = prismic.SharedSliceVariation<
   "default",
   Record<string, never>,
-  Simplify<SliderSliceSliceDefaultItem>
+  Simplify<ImageGallerySliceDefaultItem>
 >;
 
 /**
- * Slice variation for *SliderSlice*
+ * Slice variation for *ImageGallery*
  */
-type SliderSliceSliceVariation = SliderSliceSliceDefault;
+type ImageGallerySliceVariation = ImageGallerySliceDefault;
 
 /**
- * SliderSlice Shared Slice
+ * ImageGallery Shared Slice
  *
- * - **API ID**: `slider_slice`
- * - **Description**: SliderSlice
+ * - **API ID**: `image_gallery`
+ * - **Description**: ImageGallery
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type SliderSliceSlice = prismic.SharedSlice<
-  "slider_slice",
-  SliderSliceSliceVariation
+export type ImageGallerySlice = prismic.SharedSlice<
+  "image_gallery",
+  ImageGallerySliceVariation
+>;
+
+/**
+ * Primary content in *SwiperSlider → Items*
+ */
+export interface SwiperSliderSliceDefaultItem {
+  /**
+   * Logo field in *SwiperSlider → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: swiper_slider.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logo: prismic.KeyTextField;
+
+  /**
+   * LogoName field in *SwiperSlider → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: swiper_slider.items[].logoname
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logoname: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SwiperSlider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SwiperSliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SwiperSliderSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SwiperSlider*
+ */
+type SwiperSliderSliceVariation = SwiperSliderSliceDefault;
+
+/**
+ * SwiperSlider Shared Slice
+ *
+ * - **API ID**: `swiper_slider`
+ * - **Description**: SwiperSlider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SwiperSliderSlice = prismic.SharedSlice<
+  "swiper_slider",
+  SwiperSliderSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -503,14 +682,26 @@ declare module "@prismicio/client" {
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
       AllDocumentTypes,
-      RepeatSlice,
-      RepeatSliceDefaultItem,
-      RepeatSliceVariation,
-      RepeatSliceDefault,
-      SliderSliceSlice,
-      SliderSliceSliceDefaultItem,
-      SliderSliceSliceVariation,
-      SliderSliceSliceDefault,
+      AboutItemSlice,
+      AboutItemSliceDefaultPrimary,
+      AboutItemSliceVariation,
+      AboutItemSliceDefault,
+      CenterTextSlice,
+      CenterTextSliceDefaultPrimary,
+      CenterTextSliceVariation,
+      CenterTextSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
+      ImageGallerySlice,
+      ImageGallerySliceDefaultItem,
+      ImageGallerySliceVariation,
+      ImageGallerySliceDefault,
+      SwiperSliderSlice,
+      SwiperSliderSliceDefaultItem,
+      SwiperSliderSliceVariation,
+      SwiperSliderSliceDefault,
     };
   }
 }

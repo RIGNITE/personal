@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="py-3">
         <div v-if="props.category === 'Passions'" class="flex row py-4 px-2">
             <div v-for="(item, index) in props.list"
                 :key="props.category + index"
@@ -51,12 +51,6 @@ const props = defineProps({
 </script>
 
 <style>
-.list__items-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
 .passion-swiper {
     max-width: 400px;
 }

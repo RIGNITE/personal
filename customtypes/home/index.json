@@ -6,35 +6,32 @@
   "status": true,
   "json": {
     "Main": {
-      "fullname": {
-        "type": "Text",
-        "config": { "label": "FullName", "placeholder": "" }
-      },
-      "intro": {
-        "type": "StructuredText",
+      "skills": {
+        "type": "Group",
         "config": {
-          "label": "Intro",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Skills",
+          "fields": {
+            "logoname": {
+              "type": "Text",
+              "config": { "label": "LogoName", "placeholder": "" }
+            },
+            "logoicon": {
+              "type": "Text",
+              "config": { "label": "LogoIcon", "placeholder": "" }
+            }
+          }
         }
-      },
-      "occupation": {
-        "type": "Text",
-        "config": { "label": "Occupation", "placeholder": "" }
-      },
-      "location": {
-        "type": "Text",
-        "config": { "label": "Location", "placeholder": "" }
-      },
-      "headshot": {
-        "type": "Image",
-        "config": { "label": "headshot", "constraint": {}, "thumbnails": [] }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "slider_slice": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "center_text": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" },
+            "swiper_slider": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO & Metadata": {

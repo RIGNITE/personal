@@ -1,8 +1,8 @@
 {
-  "id": "slider_slice",
+  "id": "swiper_slider",
   "type": "SharedSlice",
-  "name": "SliderSlice",
-  "description": "SliderSlice",
+  "name": "SwiperSlider",
+  "description": "SwiperSlider",
   "variations": [
     {
       "id": "default",
@@ -13,13 +13,13 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "iconname": {
+        "logo": {
           "type": "Text",
-          "config": { "label": "IconName", "placeholder": "" }
+          "config": { "label": "Logo", "placeholder": "" }
         },
-        "skilllabel": {
+        "logoname": {
           "type": "Text",
-          "config": { "label": "SkillLabel", "placeholder": "" }
+          "config": { "label": "LogoName", "placeholder": "" }
         }
       }
     }
