@@ -1,35 +1,38 @@
 <template>
     <div class="main-container max-w-8xl mx-auto">
-        <div>
-            <Bio :data="biodata"/>
-        </div>
-        <div class="main-container__skills">
-            <Skills />
-        </div>
+            <slice-zone :components="components" :slices="slices" />
+        <!-- <div class="main-container__skills">
+            <Skills :skills="skills"/>
+        </div> -->
     </div>
 
 
 </template>
 
 <script setup>
+
+import { components } from "~/components/slices";
+
 const prismic = usePrismic();
 const { data: page } = await useAsyncData("[home]", () =>
   prismic.client.getSingle("home")
 );
 
-const biodata = page?.value?.data;
-console.log(biodata);
+console.log(page?.value?.data);
+
+const slices = page?.value?.data.slices;
+const skills = page?.value?.data.skills;
+
 </script>
 
 <style>
-
 .main-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.main-container__bio {
+.main-container__home {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

@@ -1,0 +1,27 @@
+{
+  "id": "swiper_slider",
+  "type": "SharedSlice",
+  "name": "SwiperSlider",
+  "description": "SwiperSlider",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "logo": {
+          "type": "Text",
+          "config": { "label": "Logo", "placeholder": "" }
+        },
+        "logoname": {
+          "type": "Text",
+          "config": { "label": "LogoName", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "piano",
+							"type": "Text"
+						}
+					],
+					[
+						"logoname",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "wonder",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]
