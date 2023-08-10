@@ -1,15 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  modules: [
-    "@nuxtjs/tailwindcss",
-  "nuxt-icon", 
-  "nuxt-swiper",
-  "@nuxtjs/i18n", 
-  "@nuxtjs/google-fonts",
-  "nuxt-headlessui", 
-  "@nuxtjs/prismic"
-],
+  modules: ["@nuxtjs/tailwindcss", // '@nuxtjs/eslint-module', //https://eslint.nuxtjs.org/
+  //https://iconify.design/
+  "nuxt-icon", //https://swiperjs.com/
+  "nuxt-swiper", //https://i18n.nuxtjs.org/
+  "@nuxtjs/i18n", //https://google-fonts.nuxtjs.org/
+  "@nuxtjs/google-fonts", //https://headlessui.dev/
+  "nuxt-headlessui", "@nuxtjs/prismic"],
 
   extends: ["nuxt-lego"],
 

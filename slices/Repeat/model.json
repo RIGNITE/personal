@@ -1,8 +1,8 @@
 {
-  "id": "image_gallery",
+  "id": "repeat",
   "type": "SharedSlice",
-  "name": "ImageGallery",
-  "description": "ImageGallery",
+  "name": "Repeat",
+  "description": "Repeat",
   "variations": [
     {
       "id": "default",
@@ -13,9 +13,13 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "image": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "title", "placeholder": "" }
+        },
+        "logo": {
           "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+          "config": { "label": "logo", "constraint": {}, "thumbnails": [] }
         }
       }
     }

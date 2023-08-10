@@ -6,21 +6,19 @@
             @click="toggleList(data)"
             class="about-container__card w-full"
         >
-            <div 
-                class="about-header flex justify-between w-full py-2 my-3" 
-                :class="data.open ? 'about-open' : ''"
-            >
-                <span class="flex items-center text-4xl px-3">{{data.category}}</span>
-                <Icon 
-                    class="pr-2" 
-                    :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" 
-                    size="50px"
-                />
-            </div>
-            <div 
-                class="list-items" 
-                :class="data.open ? '' : 'about-close'"
-            >
+        <div 
+            class="about-header flex justify-between w-full" 
+            :class="data.open ? 'about-open' : ''"
+        >
+            <span class="text-4xl p-2">{{data.category}}</span>
+            <Icon 
+                class="pr-2" 
+                :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" 
+                size="50px"
+            />
+        </div>
+
+            <div class="list-items" :class="data.open ? '' : 'about-close'">
                 <ListItems 
                     :category="data.category" 
                     :list="data.data" 
@@ -51,6 +49,7 @@ passion.forEach(item => {
     }
 });
 
+console.log(passion);
 
 import {ref} from 'vue'; 
 const about_me_data = ref(
@@ -89,14 +88,12 @@ const toggleList = (data) => {
 .about-container__card {
     max-width: 800px;
 }
-
 .about-header{
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Adjust the duration and easing as needed */
     background: linear-gradient(to right,black 50%,  #ffffff00 50% ) right;
     background-size: 200% 100%;
 }
-
 .about-header:hover{
     letter-spacing: 0.1em;
     background-position: left;

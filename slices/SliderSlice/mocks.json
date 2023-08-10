@@ -8,18 +8,18 @@
 				"__TYPE__": "GroupItemContent",
 				"value": [
 					[
-						"logo",
+						"iconname",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "piano",
+							"value": "college",
 							"type": "Text"
 						}
 					],
 					[
-						"logoname",
+						"skilllabel",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "wonder",
+							"value": "size",
 							"type": "Text"
 						}
 					]

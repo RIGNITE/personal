@@ -1,6 +1,6 @@
 {
   "repositoryName": "ryan-kim-portfolio",
   "adapter": "@slicemachine/adapter-nuxt",
-  "libraries": ["./components/slices"],
+  "libraries": ["./slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }
