@@ -1,9 +1,9 @@
 <template>
     <header class="header-container">
-      <nav class="mx-auto flex max-w-10xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
           <a href="/" class="-m-1.5 p-1.5">
-            <h1 class="header-gradient text-2xl text-gray- font-semibold">RK</h1>
+            <h1 class="header-gradient text-3xl text-gray- font-semibold">RK</h1>
           </a>
         </div>
         <div class="flex lg:hidden">

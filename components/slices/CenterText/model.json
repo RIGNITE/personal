@@ -1,0 +1,23 @@
+{
+  "id": "center_text",
+  "type": "SharedSlice",
+  "name": "CenterText",
+  "description": "CenterText",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text": {
+          "type": "Text",
+          "config": { "label": "Text", "placeholder": "" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
