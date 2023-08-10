@@ -97,7 +97,7 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "about_item": { "type": "SharedSlice" } } }
+        "config": { "choices": { "repeat": { "type": "SharedSlice" } } }
       }
     },
     "SEO & Metadata": {
