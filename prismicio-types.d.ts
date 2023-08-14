@@ -260,51 +260,17 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-/**
- * Item in *home → Skills*
- */
-export interface HomeDocumentDataSkillsItem {
-  /**
-   * LogoName field in *home → Skills*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.skills[].logoname
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  logoname: prismic.KeyTextField;
-
-  /**
-   * LogoIcon field in *home → Skills*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.skills[].logoicon
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  logoicon: prismic.KeyTextField;
-}
-
 type HomeDocumentDataSlicesSlice =
   | CenterTextSlice
   | HeroSlice
-  | SwiperSliderSlice;
+  | SwiperSliderSlice
+  | HeroProjectCardSlice
+  | HeaderTextSlice;
 
 /**
  * Content for home documents
  */
 interface HomeDocumentData {
-  /**
-   * Skills field in *home*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.skills[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  skills: prismic.GroupField<Simplify<HomeDocumentDataSkillsItem>>;
-
   /**
    * Slice Zone field in *home*
    *
@@ -361,7 +327,73 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-export type AllDocumentTypes = AboutDocument | HomeDocument;
+type ProjectsDocumentDataSlicesSlice = ProjectCardSlice;
+
+/**
+ * Content for projects documents
+ */
+interface ProjectsDocumentData {
+  /**
+   * Slice Zone field in *projects*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectsDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: projects.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: projects.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * projects document from Prismic
+ *
+ * - **API ID**: `projects`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ProjectsDocumentData>,
+    "projects",
+    Lang
+  >;
+
+export type AllDocumentTypes = AboutDocument | HomeDocument | ProjectsDocument;
 
 /**
  * Primary content in *AboutItem → Primary*
@@ -494,6 +526,51 @@ export type CenterTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *HeaderText → Primary*
+ */
+export interface HeaderTextSliceDefaultPrimary {
+  /**
+   * Header field in *HeaderText → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header_text.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HeaderText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeaderTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeaderText*
+ */
+type HeaderTextSliceVariation = HeaderTextSliceDefault;
+
+/**
+ * HeaderText Shared Slice
+ *
+ * - **API ID**: `header_text`
+ * - **Description**: HeaderText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderTextSlice = prismic.SharedSlice<
+  "header_text",
+  HeaderTextSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -566,6 +643,96 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *HeroProjectCard → Primary*
+ */
+export interface HeroProjectCardSliceDefaultPrimary {
+  /**
+   * Name field in *HeroProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_project_card.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Date field in *HeroProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_project_card.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Skills field in *HeroProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_project_card.primary.skills
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills: prismic.KeyTextField;
+
+  /**
+   * Slug field in *HeroProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_project_card.primary.slug
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slug: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *HeroProjectCard → Items*
+ */
+export interface HeroProjectCardSliceDefaultItem {
+  /**
+   * images field in *HeroProjectCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_project_card.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroProjectCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroProjectCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroProjectCardSliceDefaultPrimary>,
+  Simplify<HeroProjectCardSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *HeroProjectCard*
+ */
+type HeroProjectCardSliceVariation = HeroProjectCardSliceDefault;
+
+/**
+ * HeroProjectCard Shared Slice
+ *
+ * - **API ID**: `hero_project_card`
+ * - **Description**: HeroProjectCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroProjectCardSlice = prismic.SharedSlice<
+  "hero_project_card",
+  HeroProjectCardSliceVariation
+>;
+
+/**
  * Primary content in *ImageGallery → Items*
  */
 export interface ImageGallerySliceDefaultItem {
@@ -608,6 +775,285 @@ type ImageGallerySliceVariation = ImageGallerySliceDefault;
 export type ImageGallerySlice = prismic.SharedSlice<
   "image_gallery",
   ImageGallerySliceVariation
+>;
+
+/**
+ * Primary content in *ProjectCard → Primary*
+ */
+export interface ProjectCardSliceDefaultPrimary {
+  /**
+   * Name field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Description field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Date field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Team field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.team
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  team: prismic.KeyTextField;
+
+  /**
+   * Skills field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.skills
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills: prismic.KeyTextField;
+
+  /**
+   * Reason field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.reason
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reason: prismic.KeyTextField;
+
+  /**
+   * Slug field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.slug
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slug: prismic.KeyTextField;
+
+  /**
+   * blurp field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.blurp
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  blurp: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ProjectCard → Items*
+ */
+export interface ProjectCardSliceDefaultItem {
+  /**
+   * Image field in *ProjectCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ProjectCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectCardSliceDefaultPrimary>,
+  Simplify<ProjectCardSliceDefaultItem>
+>;
+
+/**
+ * Primary content in *ProjectCard → Primary*
+ */
+export interface ProjectCardSliceRightPrimary {
+  /**
+   * Name field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Description field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Date field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProjectCard → Items*
+ */
+export interface ProjectCardSliceRightItem {
+  /**
+   * Image field in *ProjectCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Skills field in *ProjectCard → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.items[].skills
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills: prismic.KeyTextField;
+}
+
+/**
+ * Right variation for ProjectCard Slice
+ *
+ * - **API ID**: `right`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectCardSliceRight = prismic.SharedSliceVariation<
+  "right",
+  Simplify<ProjectCardSliceRightPrimary>,
+  Simplify<ProjectCardSliceRightItem>
+>;
+
+/**
+ * Primary content in *ProjectCard → Primary*
+ */
+export interface ProjectCardSliceLeftPrimary {
+  /**
+   * Name field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Description field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Date field in *ProjectCard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProjectCard → Items*
+ */
+export interface ProjectCardSliceLeftItem {
+  /**
+   * Image field in *ProjectCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Skills field in *ProjectCard → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_card.items[].skills
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills: prismic.KeyTextField;
+}
+
+/**
+ * Left variation for ProjectCard Slice
+ *
+ * - **API ID**: `left`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectCardSliceLeft = prismic.SharedSliceVariation<
+  "left",
+  Simplify<ProjectCardSliceLeftPrimary>,
+  Simplify<ProjectCardSliceLeftItem>
+>;
+
+/**
+ * Slice variation for *ProjectCard*
+ */
+type ProjectCardSliceVariation =
+  | ProjectCardSliceDefault
+  | ProjectCardSliceRight
+  | ProjectCardSliceLeft;
+
+/**
+ * ProjectCard Shared Slice
+ *
+ * - **API ID**: `project_card`
+ * - **Description**: ProjectCard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectCardSlice = prismic.SharedSlice<
+  "project_card",
+  ProjectCardSliceVariation
 >;
 
 /**
@@ -681,6 +1127,9 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ProjectsDocument,
+      ProjectsDocumentData,
+      ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
       AboutItemSlice,
       AboutItemSliceDefaultPrimary,
@@ -690,14 +1139,34 @@ declare module "@prismicio/client" {
       CenterTextSliceDefaultPrimary,
       CenterTextSliceVariation,
       CenterTextSliceDefault,
+      HeaderTextSlice,
+      HeaderTextSliceDefaultPrimary,
+      HeaderTextSliceVariation,
+      HeaderTextSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroProjectCardSlice,
+      HeroProjectCardSliceDefaultPrimary,
+      HeroProjectCardSliceDefaultItem,
+      HeroProjectCardSliceVariation,
+      HeroProjectCardSliceDefault,
       ImageGallerySlice,
       ImageGallerySliceDefaultItem,
       ImageGallerySliceVariation,
       ImageGallerySliceDefault,
+      ProjectCardSlice,
+      ProjectCardSliceDefaultPrimary,
+      ProjectCardSliceDefaultItem,
+      ProjectCardSliceRightPrimary,
+      ProjectCardSliceRightItem,
+      ProjectCardSliceLeftPrimary,
+      ProjectCardSliceLeftItem,
+      ProjectCardSliceVariation,
+      ProjectCardSliceDefault,
+      ProjectCardSliceRight,
+      ProjectCardSliceLeft,
       SwiperSliderSlice,
       SwiperSliderSliceDefaultItem,
       SwiperSliderSliceVariation,

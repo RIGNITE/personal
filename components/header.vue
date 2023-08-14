@@ -2,9 +2,9 @@
     <header class="header-container">
       <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
-          <a href="/" class="-m-1.5 p-1.5">
+          <NuxtLink href="/" class="-m-1.5 p-1.5">
             <h1 class="header-gradient text-3xl text-gray- font-semibold">RK</h1>
-          </a>
+          </NuxtLink>
         </div>
         <div class="flex lg:hidden">
           <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
@@ -27,10 +27,10 @@
                       <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                     </div>
                     <div class="flex-auto">
-                      <a :href="item.href" class="block font-semibold text-gray-900">
+                      <NuxtLink :href="item.href" class="block font-semibold text-gray-900">
                         {{ item.name }}
                         <span class="absolute inset-0" />
-                      </a>
+                      </NuxtLink>
                       <p class="mt-1 text-gray-600">{{ item.description }}</p>
                     </div>
                   </div>

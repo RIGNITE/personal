@@ -1,6 +1,6 @@
 {
-  "id": "home",
-  "label": "home",
+  "id": "projects",
+  "label": "projects",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -9,15 +9,7 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "center_text": { "type": "SharedSlice" },
-            "hero": { "type": "SharedSlice" },
-            "swiper_slider": { "type": "SharedSlice" },
-            "hero_project_card": { "type": "SharedSlice" },
-            "header_text": { "type": "SharedSlice" }
-          }
-        }
+        "config": { "choices": { "project_card": { "type": "SharedSlice" } } }
       }
     },
     "SEO & Metadata": {

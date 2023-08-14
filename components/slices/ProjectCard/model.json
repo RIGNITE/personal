@@ -1,0 +1,125 @@
+{
+  "id": "project_card",
+  "type": "SharedSlice",
+  "name": "ProjectCard",
+  "description": "ProjectCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "Description", "placeholder": "" }
+        },
+        "date": {
+          "type": "Text",
+          "config": { "label": "Date", "placeholder": "" }
+        },
+        "team": {
+          "type": "Text",
+          "config": { "label": "Team", "placeholder": "" }
+        },
+        "skills": {
+          "type": "Text",
+          "config": { "label": "Skills", "placeholder": "" }
+        },
+        "reason": {
+          "type": "Text",
+          "config": { "label": "Reason", "placeholder": "" }
+        },
+        "slug": {
+          "type": "Text",
+          "config": { "label": "Slug", "placeholder": "" }
+        },
+        "blurp": {
+          "type": "StructuredText",
+          "config": {
+            "label": "blurp",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    },
+    {
+      "id": "right",
+      "name": "Right",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "Description", "placeholder": "" }
+        },
+        "date": {
+          "type": "Text",
+          "config": { "label": "Date", "placeholder": "" }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        },
+        "skills": {
+          "type": "Text",
+          "config": { "label": "Skills", "placeholder": "" }
+        }
+      }
+    },
+    {
+      "id": "left",
+      "name": "Left",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "Description", "placeholder": "" }
+        },
+        "date": {
+          "type": "Text",
+          "config": { "label": "Date", "placeholder": "" }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        },
+        "skills": {
+          "type": "Text",
+          "config": { "label": "Skills", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

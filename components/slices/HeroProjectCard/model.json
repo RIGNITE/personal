@@ -1,0 +1,40 @@
+{
+  "id": "hero_project_card",
+  "type": "SharedSlice",
+  "name": "HeroProjectCard",
+  "description": "HeroProjectCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "date": {
+          "type": "Text",
+          "config": { "label": "Date", "placeholder": "" }
+        },
+        "skills": {
+          "type": "Text",
+          "config": { "label": "Skills", "placeholder": "" }
+        },
+        "slug": {
+          "type": "Text",
+          "config": { "label": "Slug", "placeholder": "" }
+        }
+      },
+      "items": {
+        "images": {
+          "type": "Image",
+          "config": { "label": "images", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}
