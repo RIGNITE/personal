@@ -327,7 +327,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type ProjectsDocumentDataSlicesSlice = ProjectCardSlice;
+type ProjectsDocumentDataSlicesSlice = ProjectCardSlice | SwiperSliderSlice;
 
 /**
  * Content for projects documents
