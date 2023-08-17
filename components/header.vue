@@ -105,7 +105,15 @@
   ]
   
   const mobileMenuOpen = ref(false)
-  </script>
+
+  const route = useRoute();
+
+  watchEffect(() => {
+    if(route.fullPath) {
+      mobileMenuOpen.value = false
+    }
+  });
+</script>
 
 <style>
 .header-gradient {
@@ -114,7 +122,7 @@
 
 .header-gradient:hover {
   background: rgb(30,0,255);
-  background-image: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+  background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -145,8 +153,7 @@
 }
 
 .header-container {
-  position: sticky;
-  top: 0;
+  
 }
 
 </style>

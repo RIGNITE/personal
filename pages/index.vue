@@ -15,6 +15,7 @@ const { data: page } = await useAsyncData("[home]", () =>
 );
 
 const slices = page?.value?.data.slices;
+// console.log(slices)
 
 </script>
 

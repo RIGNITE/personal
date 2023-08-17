@@ -12,9 +12,9 @@ const { data: page } = await useAsyncData("[home]", () =>
   prismic.client.getSingle("projects")
 );
 
-console.log(page?.value?.data);
+// console.log(page?.value?.data);
 
-const slices = page?.value?.data.slices;
+const slices = page?.value?.data?.slices.filter((slice) => slice.slice_type === "project_card" && slice.variation === "default");
 </script>
 
 <style>

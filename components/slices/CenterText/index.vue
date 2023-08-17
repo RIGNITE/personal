@@ -39,4 +39,10 @@ defineProps(
   line-height: 1.75rem;
   color: rgb(75 85 99);
 }
+
+@media screen and (max-width: 768px)  {
+.center-text-container {
+  font-size: 1rem;
+}
+}
 </style>

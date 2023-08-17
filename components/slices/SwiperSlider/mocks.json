@@ -26,5 +26,39 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "smaller",
+		"primary": {
+			"project": {
+				"__TYPE__": "FieldContent",
+				"value": "mother",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "state",
+							"type": "Text"
+						}
+					],
+					[
+						"logoname",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "chose",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

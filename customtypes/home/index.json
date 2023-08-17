@@ -14,8 +14,8 @@
             "center_text": { "type": "SharedSlice" },
             "hero": { "type": "SharedSlice" },
             "swiper_slider": { "type": "SharedSlice" },
-            "hero_project_card": { "type": "SharedSlice" },
-            "header_text": { "type": "SharedSlice" }
+            "header_text": { "type": "SharedSlice" },
+            "project_card": { "type": "SharedSlice" }
           }
         }
       }
