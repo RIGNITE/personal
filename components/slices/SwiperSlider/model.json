@@ -22,6 +22,30 @@
           "config": { "label": "LogoName", "placeholder": "" }
         }
       }
+    },
+    {
+      "id": "smaller",
+      "name": "Smaller",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "project": {
+          "type": "Text",
+          "config": { "label": "Project", "placeholder": "" }
+        }
+      },
+      "items": {
+        "logo": {
+          "type": "Text",
+          "config": { "label": "Logo", "placeholder": "" }
+        },
+        "logoname": {
+          "type": "Text",
+          "config": { "label": "LogoName", "placeholder": "" }
+        }
+      }
     }
   ]
 }

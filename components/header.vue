@@ -39,8 +39,8 @@
             </transition>
           </Popover>
   
-          <a href="/about" class="header-gradient header-item text-sm font-semibold leading-6">About Me</a>
-          <a href="/projects" class="header-gradient header-item text-sm font-semibold leading-6">Projects</a>
+          <NuxtLink href="/about" class="header-gradient header-item text-sm font-semibold leading-6">About Me</NuxtLink>
+          <NuxtLink href="/projects" class="header-gradient header-item text-sm font-semibold leading-6">Projects</NuxtLink>
         </PopoverGroup>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -64,8 +64,8 @@
                     <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                   </DisclosureButton>
                 </Disclosure>
-                <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">About Me</a>
-                <a href="/projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">Projects</a>
+                <NuxtLink href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">About Me</NuxtLink>
+                <NuxtLink href="/projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50">Projects</NuxtLink>
               </div>
             </div>
           </div>
@@ -105,7 +105,15 @@
   ]
   
   const mobileMenuOpen = ref(false)
-  </script>
+
+  const route = useRoute();
+
+  watchEffect(() => {
+    if(route.fullPath) {
+      mobileMenuOpen.value = false
+    }
+  });
+</script>
 
 <style>
 .header-gradient {
@@ -114,7 +122,7 @@
 
 .header-gradient:hover {
   background: rgb(30,0,255);
-  background-image: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+  background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -142,6 +150,10 @@
 
 .header-item:hover::after {
   width: 100%;
+}
+
+.header-container {
+  
 }
 
 </style>

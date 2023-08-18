@@ -8,9 +8,6 @@ export const components = defineSliceZoneComponents({
   center_text: defineAsyncComponent(() => import("./CenterText/index.vue")),
   header_text: defineAsyncComponent(() => import("./HeaderText/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
-  hero_project_card: defineAsyncComponent(
-    () => import("./HeroProjectCard/index.vue")
-  ),
   image_gallery: defineAsyncComponent(() => import("./ImageGallery/index.vue")),
   project_card: defineAsyncComponent(() => import("./ProjectCard/index.vue")),
   swiper_slider: defineAsyncComponent(() => import("./SwiperSlider/index.vue")),

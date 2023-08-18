@@ -19,7 +19,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <div class="header-text-container">
-      <h1>{{slice.primary.header.toUpperCase()}}</h1>
+      <h1>{{ slice?.primary?.header.toUpperCase() }}</h1>
     </div>
   </section>
 </template>

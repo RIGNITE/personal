@@ -9,7 +9,12 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "project_card": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "project_card": { "type": "SharedSlice" },
+            "swiper_slider": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO & Metadata": {
