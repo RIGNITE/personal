@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
 import { Content } from "@prismicio/client";
 
 // The array passed to `getSliceComponentProps` is purely optional.
@@ -15,25 +16,6 @@ const props = defineProps(
 
 const slice = props.slice;
 
-const getIconSize = () =>  {
-  if(process.client) {
-    const width = window.innerWidth;
-    console.log(width);
-    
-    if(width < 768) {
-      return 20;
-    }
-    else {
-      return 80;
-    }
-  }
-  else {
-    return 80;
-  }
-}
-
-// var size = getIconSize();
-// console.log(`${size}px`);
 
 </script>
 
@@ -58,8 +40,8 @@ const getIconSize = () =>  {
         v-for="skill in slice.items" :key="skill.logo"
         class="!flex flex-col items-center justify-between !h-[120px]"
       >
-        <!-- <Icon :name="skill.logoname" :size="`${getIconSize()}px`"/> -->
-        <Icon :name="skill.logoname" size="60px"/>
+        <!-- <Icon class="icon" :name="skill.logoname" size="80px"/> -->
+        <Icon :name="skill.logoname" size="80px"/>
         <span class="flex md:text-lg sm:text-xl">{{skill.logo}}</span>
       </SwiperSlide>
     </Swiper>
@@ -88,4 +70,22 @@ const getIconSize = () =>  {
 </template>
 
 <style>
+.icon {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+@media screen and (max-width: 520px)  {
+
+    
+}
+
+@media screen and (max-width: 900px)  {
+
+  .icon {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+}
 </style>

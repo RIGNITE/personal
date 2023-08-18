@@ -70,19 +70,12 @@ defineProps(
 @media screen and (max-width: 520px)  {
 
   .hero__title {
+    margin-top: 20px;
     font-size: 2.75rem; 
   }
 
   .hero-container__header {
     grid-template-columns: 1fr;
-  }
-
-
-  .hero-headshot {
-    min-width: 200px;
-    min-height: 200px;
-    max-width: 225px;
-    max-height: 225px;
   }
 }
 
@@ -95,9 +88,9 @@ defineProps(
   .hero-headshot {
     min-width: 200px;
     min-height: 200px;
-    max-width: 225px;
-    max-height: 225px;
-    margin: 20px;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 20px auto;
   }
 
 }

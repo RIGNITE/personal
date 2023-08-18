@@ -1,5 +1,5 @@
 <template>
-    <div class="socials-container">
+    <div class="project-container">
         <slice-zone :components="components" :slices="slices" />
     </div>
 </template>
@@ -18,7 +18,7 @@ const slices = page?.value?.data?.slices.filter((slice) => slice.slice_type === 
 </script>
 
 <style>
-.socials-container {
+.project-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

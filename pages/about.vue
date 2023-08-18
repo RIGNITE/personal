@@ -3,21 +3,23 @@
         <div
             v-for="(data) in about_me_data"
             :key="data.category"
+            tabindex="0"
+            @keyup.enter="toggleList(data)" 
             @click="toggleList(data)"
             class="about-container__card w-full"
         >
             <div 
                 class="about-header" 
-                :class="data.open ? 'about-open' : ''"
+                :class="data.open ? 'about-open' : 'isclose'"
             >
-            <div class="about-title flex justify-between w-full py-2 my-3">
-                <span class="flex items-center text-4xl px-3">{{data.category}}</span>
-                <Icon 
-                    class="pr-2" 
-                    :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" 
-                    size="50px"
-                />
-            </div>
+                <div class="flex justify-between w-full py-2 my-3">
+                    <span class="about-title flex items-center px-3">{{data.category}}</span>
+                    <Icon 
+                        class="icon__arrow pr-2" 
+                        :name="data.open ? 'ep:arrow-up' : 'ep:arrow-down'" 
+                        size="50px"
+                    />
+                </div>
             </div>
             <div 
                 class="list-items" 
@@ -80,6 +82,8 @@ const toggleList = (data) => {
 </script>
 
 <style>
+@import "../assets/main.css";
+
 .about-container {
     display: flex;
     flex-direction: column;
@@ -90,6 +94,11 @@ const toggleList = (data) => {
 
 .about-container__card {
     max-width: 800px;
+}
+
+.about-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
 }
 
 .about-title:hover {
@@ -151,5 +160,49 @@ const toggleList = (data) => {
 
 .about-close{
     display: none;
+    color: black;
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+}
+
+.icon__arrow {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+@media screen and (max-width: 520px)  {    
+    .about-title {
+        font-size: 1.5rem;
+        line-height: 1.75rem; 
+    }
+    .icon__arrow {
+        max-width: 30px;
+        max-height: 30px;
+    }
+    
+}
+
+@media screen and (max-width: 900px)  {
+
+    .about-open {
+        letter-spacing: 0.5em;
+        transition: all 0.3 ease;
+    }
+
+    .about-header::after {
+        content: none;
+    }
+
+    .about-open::after {
+        content: none;
+    }
+
+    .isclose .about-title:hover {
+        background: transparent;
+        letter-spacing: 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: black;
+    }
+
 }
 </style>

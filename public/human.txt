@@ -1,6 +1,4 @@
 Credits
-Hero Background Image: Grayscale photo of empty road between buildings (https://unsplash.com/photos/Ztp54-7b5Qc)
-Favicon: https://www.flaticon.com/free-icon/boy_1999625?term=me&page=1&position=47&origin=search&related_id=1999625
 
 
 ## License
