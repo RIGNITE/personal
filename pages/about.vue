@@ -9,7 +9,7 @@
             class="about-container__card w-full"
         >
             <div 
-                class="about-header" 
+                class="text-gradient__spacing underline-gradient" 
                 :class="data.open ? 'about-open' : 'isclose'"
             >
                 <div class="flex justify-between w-full py-2 my-3">
@@ -101,40 +101,6 @@ const toggleList = (data) => {
     line-height: 2.5rem; 
 }
 
-.about-title:hover {
-    background: rgb(30,0,255);
-    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    transition: all 0.3s ease;
-    letter-spacing: 0.5em;
-}
-
-.about-header {
-    display: block;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3 ease;
-}
-  
-.about-header::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: rgb(30,0,255);
-    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
-    transition: width .3s;
-    transition: all 0.3 ease;
-}
-
-.about-header:hover::after {
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
 .about-open {
     background: rgb(30,0,255);
     background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
@@ -149,7 +115,6 @@ const toggleList = (data) => {
 .about-open::after {
     content: '';
     display: block;
-    width: 0;
     height: 2px;
     background: rgb(30,0,255);
     background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
@@ -187,10 +152,6 @@ const toggleList = (data) => {
     .about-open {
         letter-spacing: 0.5em;
         transition: all 0.3 ease;
-    }
-
-    .about-header::after {
-        content: none;
     }
 
     .about-open::after {

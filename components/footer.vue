@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <span class="">
+        <span class="copyright">
             © Ryan Kim 2023
         </span>
         <div class="socials">
@@ -69,5 +69,23 @@ const links = [
 
 .socials-item:hover {
     color: #000000;
+}
+
+.copyright {
+    font-size: 1rem;
+    color: #828282;
+}
+
+@media screen and (max-width: 520px) {
+    .copyright {
+        font-size: 0.75rem;
+    }
+
+    .socials-item {
+        max-width: 20px;
+        max-height: 20px;
+        width: 20px;
+        height: 20px;
+    }
 }
 </style>

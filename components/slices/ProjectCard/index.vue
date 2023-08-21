@@ -27,7 +27,7 @@ const slice = props.slice;
     class="flex flex-col max-w-3xl mx-auto my-8 h-48 justify-between"
   >
     <div>
-      <NuxtLink class="link" :to="`/projects/${slice.primary.slug}`">
+      <NuxtLink class="text-gradient underline-gradient" :to="`/projects/${slice.primary.slug}`">
         <h1 class="text-3xl tracking-widest">{{ slice.primary.name }}</h1>
       </NuxtLink>
       <div class="flex row justify-between text-gray-500">
@@ -60,7 +60,7 @@ const slice = props.slice;
 
   <div v-if="slice.variation === 'hero'">
     <div class="center-text-container">
-      <NuxtLink class="link" :to="`/projects/${slice.primary.slug}`">
+      <NuxtLink class="text-gradient underline-gradient" :to="`/projects/${slice.primary.slug}`">
         <h1 class="text-2xl">{{ slice.primary.name }}</h1>
       </NuxtLink>
       <p>{{ slice.primary.date }}</p>
@@ -71,6 +71,8 @@ const slice = props.slice;
 </template>
 
 <style>
+@import "../../../assets/main.css";
+
 .project__container {
   display: flex;
   flex-direction: column;
@@ -79,25 +81,5 @@ const slice = props.slice;
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-.link {
-  display: block;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.link::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: rgb(30,0,255);
-  background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
-  transition: width .3s;
-}
-
-.link:hover::after {
-  width: 100%;
 }
 </style>

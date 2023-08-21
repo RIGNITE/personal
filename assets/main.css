@@ -1,3 +1,68 @@
 .red {
     color: red;
 }
+
+.text-gradient {
+
+}
+
+.text-gradient:hover {
+    background: rgb(30,0,255);
+    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    transition: all 0.3s ease;
+  }
+
+.text-gradient__spacing{
+
+}
+
+.text-gradient__spacing:hover {
+    background: rgb(30,0,255);
+    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    transition: all 0.3s ease;
+    letter-spacing: 0.5em;
+}
+
+.underline-gradient {
+
+}
+
+.underline-gradient {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+  
+.underline-gradient::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(30,0,255);
+    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+    transition: width .3s;
+    transition: all 0.3 ease;
+}
+
+.underline-gradient:hover::after {
+    width: 100%;
+}
+
+@media screen and (max-width: 900px)  {
+
+    .text-gradient__spacing::after {
+        content: none;
+    }
+
+}
