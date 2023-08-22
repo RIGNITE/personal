@@ -1,15 +1,14 @@
 <template>
-  <!-- bg-slate-400 or bg-zinc-600 -->
       <Header />
       <div class="content-container">
         <slot />
       </div>
-      <Footer v-if="socials" :socials="socials.data?.socials"/>  
+      <Footer v-if="result" :data="result.data"/>  
 </template>
 
 <script setup>
 const prismic = usePrismic();
-const { data: socials } = await useAsyncData("[footer]", () =>
+const { data: result } = await useAsyncData("[footer]", () =>
   prismic.client.getSingle("footer")
 );
 </script>

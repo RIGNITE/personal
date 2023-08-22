@@ -1,9 +1,7 @@
 <template>
-    <div class="main-container max-w-8xl mx-auto">
+    <div class="main-container max-w-8xl mx-auto mb-20">
             <slice-zone :components="components" :slices="slices" />
     </div>
-
-
 </template>
 
 <script setup>

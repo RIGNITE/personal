@@ -26,6 +26,14 @@
           }
         }
       },
+      "email": {
+        "type": "Text",
+        "config": { "label": "email", "placeholder": "" }
+      },
+      "blurp": {
+        "type": "Text",
+        "config": { "label": "blurp", "placeholder": "" }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

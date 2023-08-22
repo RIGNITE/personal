@@ -3,7 +3,7 @@
 }
 
 .text-gradient {
-
+    transition: all 0.3s ease;
 }
 
 .text-gradient:hover {
@@ -19,7 +19,7 @@
   }
 
 .text-gradient__spacing{
-
+    transition: all 0.3s ease;
 }
 
 .text-gradient__spacing:hover {
@@ -34,7 +34,7 @@
 }
 
 .underline-gradient {
-
+    transition: all 0.3s ease;
 }
 
 .underline-gradient {

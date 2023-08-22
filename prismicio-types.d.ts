@@ -313,6 +313,28 @@ interface FooterDocumentData {
   socials: prismic.GroupField<Simplify<FooterDocumentDataSocialsItem>>;
 
   /**
+   * email field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * blurp field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.blurp
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  blurp: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Footer*
    *
    * - **Field Type**: Slice Zone
