@@ -142,7 +142,8 @@ function copyToClipboard() {
     }
     
     .footer-email:hover {
-        content: none;
+        letter-spacing: 0.25rem;
+        font-size: 1.5rem;
     }
 }
 </style>
