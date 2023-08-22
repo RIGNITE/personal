@@ -7,12 +7,13 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/tailwindcss",
-  "nuxt-icon", 
-  "nuxt-swiper",
-  "@nuxtjs/i18n", 
-  "@nuxtjs/google-fonts",
-  "nuxt-headlessui", 
-  "@nuxtjs/prismic"
+    "nuxt-icon", 
+    "nuxt-swiper",
+    "@nuxtjs/i18n", 
+    "@nuxtjs/google-fonts",
+    "nuxt-headlessui", 
+    "@nuxtjs/prismic",
+    "nuxt-vercel-analytics"
 ],
 
   extends: ["nuxt-lego"],

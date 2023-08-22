@@ -22,12 +22,14 @@
     "nuxt-headlessui": "^1.1.4",
     "nuxt-icon": "^0.4.2",
     "nuxt-lego": "^0.0.14",
+    "nuxt-vercel-analytics": "^0.2.2",
     "slice-machine-ui": "^1.8.0"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@heroicons/vue": "^2.0.18",
     "@nuxtjs/google-fonts": "^3.0.2",
+    "@vercel/analytics": "^1.0.2",
     "gsap": "^3.12.2",
     "nuxt-swiper": "^1.2.0"
   }

@@ -154,6 +154,10 @@ const toggleList = (data) => {
         transition: all 0.3 ease;
     }
 
+    .about-header::after {
+        content: none;
+    }
+
     .about-open::after {
         content: none;
     }

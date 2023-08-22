@@ -1,16 +1,16 @@
 <template>
     <div class="footer">
         <span class="copyright">
-            © Ryan Kim 2023
+            © Ryan Kim {{ year }}
         </span>
         <div class="socials">
             <a 
-                v-for="link in links" 
-                :key="link.name"
-                :href="link.link" 
+                v-for="item in socials" 
+                :key="item.name"
+                :href="item.link" 
                 target="_blank">
                 <Icon 
-                    :name="link.icon" 
+                    :name="item.icon" 
                     size="30px" 
                     class="socials-item"
                 />
@@ -20,28 +20,16 @@
 </template>
 
 <script setup>
-const links = [
-    {
-        name: 'Instagram',
-        link: 'https://www.instagram.com/k.im_ryan/',
-        icon: 'mdi:instagram'
-    },
-    {
-        name: 'LinkedIn',
-        link: 'https://www.linkedin.com/in/ryan-kim-26445414b/',
-        icon: 'mdi:linkedin'
-    },
-    {
-        name: 'Github',
-        link: 'https://github.com/RIGNITE',
-        icon: 'mdi:github'
-    },
-    {
-        name: 'Facebook',
-        link: 'https://www.facebook.com/ryan.5.kim/',
-        icon: 'mdi:facebook'
-    }
-]
+// Make year dynamic
+const year = new Date().getFullYear();
+
+const prismic = usePrismic();
+const { data: page } = await useAsyncData("[home]", () =>
+  prismic.client.getSingle("footer")
+);
+
+const socials = page?.value?.data?.socials;
+
 </script>
 
 <style>
@@ -68,7 +56,12 @@ const links = [
 }
 
 .socials-item:hover {
-    color: #000000;
+    cursor: pointer;
+    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 
 .copyright {
