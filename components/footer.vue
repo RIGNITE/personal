@@ -4,17 +4,17 @@
             © Ryan Kim {{ year }}
         </span>
         <div class="socials">
-            <a 
-                v-for="item in socials" 
+            <PrismicLink 
+                v-for="item in props.socials" 
                 :key="item.name"
-                :href="item.link" 
+                :field="item.link" 
                 target="_blank">
                 <Icon 
                     :name="item.icon" 
                     size="30px" 
                     class="socials-item"
                 />
-            </a>
+            </PrismicLink>
         </div>
     </div>
 </template>
@@ -23,13 +23,13 @@
 // Make year dynamic
 const year = new Date().getFullYear();
 
-const prismic = usePrismic();
-const { data: page } = await useAsyncData("[home]", () =>
-  prismic.client.getSingle("footer")
-);
 
-const socials = page?.value?.data?.socials;
-
+const props = defineProps({
+    socials: {
+        type: Array,
+        required: true
+    }
+});
 </script>
 
 <style>
@@ -57,11 +57,7 @@ const socials = page?.value?.data?.socials;
 
 .socials-item:hover {
     cursor: pointer;
-    background: linear-gradient(342deg, rgba(30,0,255,1) 0%, rgba(222,163,68,1) 38%, rgba(209,64,71,1) 61%, rgba(9,9,121,1) 100%);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    color: rgba(9,9,121,1);
 }
 
 .copyright {
