@@ -1,5 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
@@ -51,6 +49,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   prismic: {
-    endpoint: "ryan-kim-portfolio",
+    endpoint: process.env.NUXT_PRISMIC,
+    // vercel env pull
   },
 });

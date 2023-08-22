@@ -4,13 +4,14 @@
       <div class="content-container">
         <slot />
       </div>
-      <Footer />  
+      <Footer v-if="socials" :socials="socials.data?.socials"/>  
 </template>
 
-<script>
-export default {
-  name: 'DefaultLayout'
-}
+<script setup>
+const prismic = usePrismic();
+const { data: socials } = await useAsyncData("[footer]", () =>
+  prismic.client.getSingle("footer")
+);
 </script>
 
 <style>
