@@ -3,6 +3,7 @@
   <div>
     <div :style="`width: ${progress_width}%`" class="progress_bar" ref="progress_bar"></div>
     <slice-zone :components="components" :slices="project" />
+    <NuxtLink href="/projects/" class="back-to-projects text-gradient">Back to projects</NuxtLink>
   </div>
 </template>
 
@@ -51,7 +52,6 @@ onMounted(() => {
 
 
 <style>
-
 .progress_bar {
   position: fixed;
   left: 0;
@@ -59,5 +59,18 @@ onMounted(() => {
   height: 5px;
   border: none;
   background: rgba(9,9,121,1);
+}
+
+.back-to-projects {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
 }
 </style>
