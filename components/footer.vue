@@ -2,7 +2,7 @@
     <div class="footer-container">
         <div class="footer__top">
             <p class="footer-blurp">{{ props.data.blurp }}</p>
-            <p class="footer-email" @click="copyToClipboard">{{ props.data.email }}</p>
+            <a class="footer-email" href="mailto:rck2001@hotmail.com" >rck2001@hotmail.com</a>
         </div>
         <div class="footer__bottom">
             <span class="copyright">
@@ -36,17 +36,6 @@ const props = defineProps({
         required: true
     }
 });
-
-// console.log(props.data
-
-function copyToClipboard() {
-    const el = document.createElement('textarea');
-    el.value = props.data.email;
-    document.body.appendChild(el);
-    el.select();
-    document.body.removeChild(el);
-    alert('Copied to clipboard!');
-}
 
 </script>
 
@@ -142,7 +131,8 @@ function copyToClipboard() {
     }
     
     .footer-email:hover {
-        content: none;
+        letter-spacing: none;
+        font-size: 0.75rem;
     }
 }
 </style>
